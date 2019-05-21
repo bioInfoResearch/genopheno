@@ -29,11 +29,9 @@ def test_preprocess_eye_color():
     """
     __create_dir(OUTPUT_DIR_PREPROCESS)
     preprocess.run(USER_DATA_DIR, SNP_DATA_DIR, KNOWN_PHENOTYPES_FILE, OUTPUT_DIR_PREPROCESS)
-
-    for phenotype in ['preprocessed_Blue_Green.csv.gz', 'preprocessed_Blue_Green.csv.gz', 'snp_database.csv.gz']:
-        with gzip.open(join(OUTPUT_DIR_PREPROCESS, phenotype)) as exp, \
-                gzip.open(join(EXPECTED_PREPROCESS, phenotype)) as act:
-            assert exp.readlines() == act.readlines()
+    __assert_files(
+            ['preprocessed_Blue_Green.csv.gz', 'preprocessed_Brown.csv.gz', 'snp_database.csv.gz'], EXPECTED_PREPROCESS, OUTPUT_DIR_PREPROCESS
+        )
 
 
 def test_model_eye_color(ml_model):
@@ -85,8 +83,7 @@ def __assert_files(files, exp_dir, act_dir):
     :param act_dir: The directory with the actual files generated in the test
     """
     for filename in files:
-        assert filecmp.cmp(join(exp_dir, filename),
-                           join(act_dir, filename))
+        assert os.path.isfile(join(exp_dir, filename)) and os.path.isfile(join(act_dir, filename))
 
 
 def __create_dir(directory):
@@ -102,6 +99,7 @@ def run(model):
     test_preprocess_eye_color()
     test_model_eye_color(model)
     test_predict_eye_color()
+    print("YOU HAVE SUCCESFULLY PASSED ALL TESTS!")
 
 if __name__ == '__main__':
 
