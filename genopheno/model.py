@@ -7,7 +7,7 @@ import logging
 import logging.config
 
 from models.snp_selectors import mutation_difference
-from models import elastic_net, decision_tree, random_forest
+from models import elastic_net, decision_tree, random_forest, xgboost_
 from util import timed_invoke, expand_path, clean_output, setup_logger
 
 logger = logging.getLogger('root')
@@ -16,6 +16,7 @@ MODELS = {
     'en': elastic_net.build_model,
     'dt': decision_tree.build_model,
     'rf': random_forest.build_model,
+	'xg': xgboost_.build_model,
 }
 
 
@@ -44,7 +45,6 @@ def __read_phenotype_input(input_dir):
     if len(phenotypes) == 0:
         raise ValueError('No preprocessed files in directory "{}". '
                          'This directory should contain the output from the preprocess step.'.format(input_dir))
-
     return phenotypes
 
 
@@ -64,6 +64,7 @@ def run(preprocessed_dir, invalid_thresh, invalid_user_thresh, relative_diff_thr
     :param cross_validation: number of folds for cross validation
     :param output_dir: The directory to write the model in
     """
+
     # Expand file paths
     preprocessed_dir = expand_path(preprocessed_dir)
 
@@ -82,6 +83,10 @@ def run(preprocessed_dir, invalid_thresh, invalid_user_thresh, relative_diff_thr
     data_set = timed_invoke('creating model data set', lambda: mutation_difference.create_dataset(
                                phenotypes, invalid_thresh, invalid_user_thresh, relative_diff_thresh)
                             )
+    export_csv = data_set.to_csv(r'./exported.csv')
+
+
+
     timed_invoke('building model', lambda: build_model(data_set, data_split, no_interactions, negative, max_snps,
                                                        cross_validation, output_dir))
     logger.info('Output written to "{}"'.format(output_dir))
@@ -172,13 +177,14 @@ if __name__ == '__main__':
     parser.add_argument(
         "--model",
         "-m",
-        default="rf",
+        default="xg",
         type=str,
         help="The type of model to use."
              "\nen = Elastic net"
              "\ndt = Decision tree"
              "\nrf = Random Forest"
-             "\n\n Default: rf"
+			 "\nxg = XGboost"
+             "\n\n Default: xg"
     )
 
     parser.add_argument(
