@@ -221,10 +221,10 @@ python tests/test_app.py
 
 |Argument|Short|Description|
 |:--|:--|:--|
-|**--model**|**-m**|The type of model to use.`en`=Elastic Net, `dt`=Decision Tree, `rf`=Random Forest. Default: `rf`, default: `xg`=XGBoost|
+|**--model**|**-m**|The type of model to use.`en`=Elastic Net, `dt`=Decision Tree, `rf`=Random Forest, `xg`=XGBoost, Default: `en`|
 
 ### Important Notes
 
 - Model currently runs on a full data set of 830 users
 - Data folder only had all 830 users information already preprocessed
-- So when running the preprocessing script, only the toy data of 23 users is processed
+- So when running the preprocessing script, only the toy data of 23 users is actually preprocessed
