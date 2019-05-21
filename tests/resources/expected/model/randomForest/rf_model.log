@@ -1,0 +1,42 @@
+[INFO] 2019-05-20 19:00:28,756:  Started reading the preprocessed files...
+[INFO] 2019-05-20 19:01:10,666:  412 users and 1304138 SNPs for phenotype 'Blue_Green'
+[INFO] 2019-05-20 19:01:55,016:  416 users and 1304138 SNPs for phenotype 'Brown'
+[INFO] 2019-05-20 19:01:55,017:  Finished reading the preprocessed files in 86 seconds
+[INFO] 2019-05-20 19:01:55,017:  Started creating model data set...
+[INFO] 2019-05-20 19:02:14,601:  805259 (61.75%) SNPs removed due to too many missing user observations for phenotype 'Brown'
+[INFO] 2019-05-20 19:02:38,277:  804482 (61.69%) SNPs removed due to too many missing user observations for phenotype 'Blue_Green'
+[INFO] 2019-05-20 19:02:40,798:  107 SNPs with mutation differences identified
+[INFO] 2019-05-20 19:02:40,988:  22 users dropped due to too many missing observations
+[INFO] 2019-05-20 19:02:40,988:  Model Data contains 806 users and 107 SNPs
+[INFO] 2019-05-20 19:02:40,988:  Finished creating model data set in 45 seconds
+[INFO] 2019-05-20 19:02:41,022:  Started building model...
+[INFO] 2019-05-20 19:02:41,067:  -- Data Summary --
+	Negative (Blue_Green):	404 (50.1%)
+	Positive (Brown):	402 (49.9%)
+	TOTAL:	806
+
+[INFO] 2019-05-20 19:02:41,067:  Training Count:	540
+Test Count:	266
+Number of SNP Features:	107
+
+[INFO] 2019-05-20 19:03:00,675:  Best estimator params found during grid search: {'min_samples_leaf': 0.0025, 'n_estimators': 1000, 'min_samples_split': 0.01, 'criterion': 'gini', 'max_features': 'sqrt', 'max_depth': None}
+[INFO] 2019-05-20 19:03:01,140:  Confusion Matrix Metrics: 
+    Accuracy:    0.925
+    Sensitivity: 0.925
+    Specificity: 0.925
+    TP: 123
+    TN: 123
+    FP: 10
+    FN: 10
+
+[INFO] 2019-05-20 19:03:01,583:  Confusion Matrix Metrics: 
+    Accuracy:    0.944
+    Sensitivity: 0.948
+    Specificity: 0.941
+    TP: 255
+    TN: 255
+    FP: 16
+    FN: 14
+
+[INFO] 2019-05-20 19:03:01,925:  Finished building model in 20 seconds
+[INFO] 2019-05-20 19:03:01,925:  Output written to "resources/data/model"

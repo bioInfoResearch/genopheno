@@ -1,0 +1,44 @@
+[INFO] 2019-05-20 18:25:07,222:  Started reading the preprocessed files...
+[INFO] 2019-05-20 18:25:09,390:  8 users and 1304138 SNPs for phenotype 'Blue_Green'
+[INFO] 2019-05-20 18:25:12,076:  15 users and 1304138 SNPs for phenotype 'Brown'
+[INFO] 2019-05-20 18:25:12,076:  Finished reading the preprocessed files in 4 seconds
+[INFO] 2019-05-20 18:25:12,076:  Started creating model data set...
+[INFO] 2019-05-20 18:25:12,717:  800956 (61.42%) SNPs removed due to too many missing user observations for phenotype 'Brown'
+[INFO] 2019-05-20 18:25:13,141:  801012 (61.42%) SNPs removed due to too many missing user observations for phenotype 'Blue_Green'
+[INFO] 2019-05-20 18:25:13,879:  using user defined threshold: 15
+[INFO] 2019-05-20 18:25:15,691:  417341 SNPs with mutation differences identified
+[INFO] 2019-05-20 18:25:20,279:  1 users dropped due to too many missing observations
+[INFO] 2019-05-20 18:25:20,279:  Model Data contains 22 users and 417341 SNPs
+[INFO] 2019-05-20 18:25:20,299:  Finished creating model data set in 8 seconds
+[INFO] 2019-05-20 18:25:33,238:  Started building model...
+[WARNING] 2019-05-20 18:25:33,506:  Too many model SNPs (417341, configured max: 200). Dropping extra SNPs.
+[INFO] 2019-05-20 18:25:33,758:  -- Data Summary --
+	Negative (Blue_Green):	7 (31.8%)
+	Positive (Brown):	15 (68.2%)
+	TOTAL:	22
+
+[INFO] 2019-05-20 18:25:33,758:  Training Count:	14
+Test Count:	8
+Number of SNP Features:	200
+
+[INFO] 2019-05-20 18:25:42,579:  Best estimator params found during grid search: {'l1_ratio': 0}
+[INFO] 2019-05-20 18:25:42,582:  Confusion Matrix Metrics: 
+    Accuracy:    0.625
+    Sensitivity: 1.0
+    Specificity: 0.0
+    TP: 5
+    TN: 0
+    FP: 3
+    FN: 0
+
+[INFO] 2019-05-20 18:25:42,583:  Confusion Matrix Metrics: 
+    Accuracy:    1.0
+    Sensitivity: 1.0
+    Specificity: 1.0
+    TP: 10
+    TN: 4
+    FP: 0
+    FN: 0
+
+[INFO] 2019-05-20 18:25:43,227:  Finished building model in 9 seconds
+[INFO] 2019-05-20 18:25:43,227:  Output written to "output_model"

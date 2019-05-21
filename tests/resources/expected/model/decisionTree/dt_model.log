@@ -1,0 +1,43 @@
+[INFO] 2019-05-20 18:44:17,935:  Started reading the preprocessed files...
+[INFO] 2019-05-20 18:44:20,178:  8 users and 1304138 SNPs for phenotype 'Blue_Green'
+[INFO] 2019-05-20 18:44:23,040:  15 users and 1304138 SNPs for phenotype 'Brown'
+[INFO] 2019-05-20 18:44:23,040:  Finished reading the preprocessed files in 5 seconds
+[INFO] 2019-05-20 18:44:23,040:  Started creating model data set...
+[INFO] 2019-05-20 18:44:23,680:  800956 (61.42%) SNPs removed due to too many missing user observations for phenotype 'Brown'
+[INFO] 2019-05-20 18:44:24,109:  801012 (61.42%) SNPs removed due to too many missing user observations for phenotype 'Blue_Green'
+[INFO] 2019-05-20 18:44:24,851:  using user defined threshold: 15
+[INFO] 2019-05-20 18:44:26,848:  417341 SNPs with mutation differences identified
+[INFO] 2019-05-20 18:44:31,940:  1 users dropped due to too many missing observations
+[INFO] 2019-05-20 18:44:31,940:  Model Data contains 22 users and 417341 SNPs
+[INFO] 2019-05-20 18:44:31,968:  Finished creating model data set in 8 seconds
+[INFO] 2019-05-20 18:44:44,471:  Started building model...
+[WARNING] 2019-05-20 18:44:44,735:  Too many model SNPs (417341, configured max: 200). Dropping extra SNPs.
+[INFO] 2019-05-20 18:44:44,961:  -- Data Summary --
+	Negative (Blue_Green):	7 (31.8%)
+	Positive (Brown):	15 (68.2%)
+	TOTAL:	22
+
+[INFO] 2019-05-20 18:44:44,961:  Training Count:	14
+Test Count:	8
+Number of SNP Features:	200
+
+[INFO] 2019-05-20 18:44:50,203:  Best estimator params found during grid search: {'max_features': 0.3, 'min_samples_split': 0.01, 'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 0.0025}
+[INFO] 2019-05-20 18:44:50,204:  Confusion Matrix Metrics: 
+    Accuracy:    0.25
+    Sensitivity: 0.0
+    Specificity: 0.667
+    TP: 0
+    TN: 2
+    FP: 1
+    FN: 5
+
+[INFO] 2019-05-20 18:44:50,205:  Confusion Matrix Metrics: 
+    Accuracy:    1.0
+    Sensitivity: 1.0
+    Specificity: 1.0
+    TP: 10
+    TN: 4
+    FP: 0
+    FN: 0
+
+[INFO] 2019-05-20 18:44:50,271:  Exception while building model after 5 seconds

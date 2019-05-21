@@ -1,0 +1,8 @@
+Confusion Matrix Metrics: 
+    Accuracy:    0.906
+    Sensitivity: 0.902
+    Specificity: 0.91
+    TP: 120
+    TN: 121
+    FP: 12
+    FN: 13

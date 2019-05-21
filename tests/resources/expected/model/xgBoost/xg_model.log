@@ -1,0 +1,42 @@
+[INFO] 2019-05-20 19:04:02,174:  Started reading the preprocessed files...
+[INFO] 2019-05-20 19:04:55,528:  412 users and 1304138 SNPs for phenotype 'Blue_Green'
+[INFO] 2019-05-20 19:05:51,391:  416 users and 1304138 SNPs for phenotype 'Brown'
+[INFO] 2019-05-20 19:05:51,393:  Finished reading the preprocessed files in 109 seconds
+[INFO] 2019-05-20 19:05:51,394:  Started creating model data set...
+[INFO] 2019-05-20 19:06:10,337:  805259 (61.75%) SNPs removed due to too many missing user observations for phenotype 'Brown'
+[INFO] 2019-05-20 19:06:34,370:  804482 (61.69%) SNPs removed due to too many missing user observations for phenotype 'Blue_Green'
+[INFO] 2019-05-20 19:06:36,937:  107 SNPs with mutation differences identified
+[INFO] 2019-05-20 19:06:37,175:  22 users dropped due to too many missing observations
+[INFO] 2019-05-20 19:06:37,175:  Model Data contains 806 users and 107 SNPs
+[INFO] 2019-05-20 19:06:37,176:  Finished creating model data set in 45 seconds
+[INFO] 2019-05-20 19:06:37,223:  Started building model...
+[INFO] 2019-05-20 19:06:37,265:  -- Data Summary --
+	Negative (Blue_Green):	404 (50.1%)
+	Positive (Brown):	402 (49.9%)
+	TOTAL:	806
+
+[INFO] 2019-05-20 19:06:37,265:  Training Count:	540
+Test Count:	266
+Number of SNP Features:	107
+
+[INFO] 2019-05-20 19:06:39,986:  Best estimator params found during grid search: {'colsample_bytree': 0.6, 'eval_metric': 'auc', 'min_child_weight': 5, 'n_estimators': 500, 'subsample': 0.6, 'eta': 0.01, 'objective': 'binary:logistic', 'max_depth': 1}
+[INFO] 2019-05-20 19:06:39,991:  Confusion Matrix Metrics: 
+    Accuracy:    0.906
+    Sensitivity: 0.902
+    Specificity: 0.91
+    TP: 120
+    TN: 121
+    FP: 12
+    FN: 13
+
+[INFO] 2019-05-20 19:06:40,000:  Confusion Matrix Metrics: 
+    Accuracy:    0.906
+    Sensitivity: 0.933
+    Specificity: 0.878
+    TP: 251
+    TN: 238
+    FP: 33
+    FN: 18
+
+[INFO] 2019-05-20 19:06:40,180:  Finished building model in 2 seconds
+[INFO] 2019-05-20 19:06:40,180:  Output written to "resources/data/model"

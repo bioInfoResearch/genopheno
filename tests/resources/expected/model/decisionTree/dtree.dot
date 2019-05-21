@@ -1,0 +1,16 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="gene_9951_HS3ST4_rs4787747 <= 1.5\ngini = 0.408\nsamples = 14\nvalue = [4, 10]"] ;
+1 [label="gene_91137_SLC25A46_rs244411 <= 1.5\ngini = 0.278\nsamples = 12\nvalue = [2, 10]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.0\nsamples = 1\nvalue = [1, 0]"] ;
+1 -> 2 ;
+3 [label="gene_105370402_LOC105370402_rs4982619 <= 0.5\ngini = 0.165\nsamples = 11\nvalue = [1, 10]"] ;
+1 -> 3 ;
+4 [label="gini = 0.0\nsamples = 1\nvalue = [1, 0]"] ;
+3 -> 4 ;
+5 [label="gini = 0.0\nsamples = 10\nvalue = [0, 10]"] ;
+3 -> 5 ;
+6 [label="gini = 0.0\nsamples = 2\nvalue = [2, 0]"] ;
+0 -> 6 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
