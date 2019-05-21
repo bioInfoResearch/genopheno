@@ -143,15 +143,15 @@ python model.py --help
 |**--no-interactions**|**-ni**|If set then interactions will not be included in the model.|
 |**--negative**|**-n**|The phenotype value that should be considered as the negative case.|
 |**--max-snps**|**-ms**|The maximum number of SNPs to include in the model|
-|**--model**|**-m**|The type of model to use.`en`=Elastic Net, `dt`=Decision Tree, `rf`=Random Forest. Default: `rf`|
+|**--model**|**-m**|The type of model to use.`en`=Elastic Net, `dt`=Decision Tree, `rf`=Random Forest. Default: `rf`, default: `xg`=XGBoost|
 |**--cross-validation**|**-cv**|Number of folds for k-fold cross validation. Default: 3|
 |**--output**|**-o**|The directory that the output files should be written to. This will include all files required for the machine learning input.|
 
 ### Output
 
-After the model is built, if elastic net is used, an ROC curve and confusion matrix will be written to the output directory (roc.png and confusion_matrix.txt) to evaluate the model.
+After the model is built, if elastic net or xgboost is used, an ROC curve and confusion matrix will be written to the output directory (roc.png and confusion_matrix.txt) to evaluate the model.
 
-For elastic net, decision tree, and random forest, the model features, sorted by influence, will be written to the output. For example:
+For elastic net, decision tree, random forest, and xgboost the model features, sorted by influence, will be written to the output. For example:
 
 ```
 intercept: [104.24800058]
@@ -162,6 +162,17 @@ rs693:rs306967,-55.0389140668
 rs693:rs557993,-54.4003899739
 rs693:rs382266,-54.4003899739
 ```
+
+### Current Models and their performance on train and test sets
+
+![trainVstest](./images/trainVsTest.png)
+
+|Model|Train Accuracy|Test Accuracy|
+|:--|:--|:--|
+|**Elastic Net**|**97.7**|**85.6**|
+|**Decision Tree**|**88.5**|**91**|
+|**Random Forest**|**93.4**|**93.6**|
+|**XGBoost**|**90.7**|**92.1**|
 
 ## Using the Model
 
@@ -200,3 +211,20 @@ user_id,prediction
 2064,Blue_Green
 2074,Blue_Green
 ```
+
+### Testing
+
+
+```commandline
+python tests/test_app.py
+```
+
+|Argument|Short|Description|
+|:--|:--|:--|
+|**--model**|**-m**|The type of model to use.`en`=Elastic Net, `dt`=Decision Tree, `rf`=Random Forest. Default: `rf`, default: `xg`=XGBoost|
+
+### Important Notes
+
+- Model currently runs on a full data set of 830 users
+- Data folder only had all 830 users information already preprocessed
+- So when running the preprocessing script, only the toy data of 23 users is processed
