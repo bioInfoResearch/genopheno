@@ -152,8 +152,8 @@ def __identify_mutated_snps(phenotypes, relative_diff_thresh):
         raise ValueError('Using mutation differences to identify SNPs is only valid for two phenotype options.')
 
     # Merge the data frames top identify common SNPs and be able to do selection in one pass
-    pheno_df_a = phenotypes.values()[0]
-    pheno_df_b = phenotypes.values()[1]
+    pheno_df_a = list(phenotypes.values())[0]
+    pheno_df_b = list(phenotypes.values())[1]
     mutation_columns = ['pct_nm', 'pct_pm', 'pct_fm']
     merged = pheno_df_a[mutation_columns].merge(pheno_df_b[mutation_columns], left_index=True, right_index=True,
                                                 suffixes=('_a', '_b'))
@@ -201,7 +201,7 @@ def create_dataset(phenotypes, invalid_thresh, invalid_user_thresh, relative_dif
     The value is the number of mutations (0,1,2).
     """
     # Filter out SNPs that do not have enough user observations
-    for pheno, pheno_df in phenotypes.iteritems():
+    for pheno, pheno_df in phenotypes.items():
         __remove_missing_data(pheno, pheno_df, invalid_thresh)
 
     # Select snps based on mutation differences between phenotypes

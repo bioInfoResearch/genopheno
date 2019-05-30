@@ -1,4 +1,4 @@
-import common
+from models import common
 import pandas as pd
 from os import path, linesep
 from sklearn.linear_model import SGDClassifier
@@ -67,7 +67,7 @@ def save_features(model, term_labels, output_dir):
     features.sort_values(ascending=False, inplace=True, by='coef_abs')
     features.drop('coef_abs', axis=1, inplace=True)
 
-    with file(path.join(output_dir, 'model_features.csv'), 'w') as f:
+    with open(path.join(output_dir, 'model_features.csv'), 'w') as f:
         f.write('intercept: {}{}{}'.format(model.intercept_[0], linesep, linesep))
 
         # main effects

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pydotplus
-import common
+from models import common
 from os.path import join
 from os import remove
 from sklearn import tree

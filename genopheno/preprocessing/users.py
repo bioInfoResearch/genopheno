@@ -101,7 +101,7 @@ class UserPhenotypes:
         """
         file_name_regex = re.compile("^user[0-9]+_.*(23andme|ancestry).txt$")
         files = os.listdir(user_data_dir)
-        return filter(file_name_regex.match, files)
+        return list(filter(file_name_regex.match, files))
 
     def reduce_phenotypes(self, reducer):
         """
