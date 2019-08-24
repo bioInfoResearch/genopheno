@@ -1,3 +1,5 @@
+
+
 import sklearn.metrics as skm
 import matplotlib as mp
 mp.use('Agg')
@@ -7,6 +9,7 @@ import numpy as np
 import pandas as pd
 import pickle
 from patsy import ModelDesc, EvalFactor, Term, dmatrix
+__all__ = [ModelDesc, EvalFactor, Term, dmatrix]
 from os import linesep, path
 from sklearn.preprocessing import Imputer
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -228,7 +231,7 @@ def __save_feature_importance(model, model_desc, output_dir):
         features = features[features['coef_abs'] > 0]
         features.sort_values(ascending=False, inplace=True, by='coef_abs')
 
-        with file(path.join(output_dir, 'features.csv'), 'w') as f:
+        with open(path.join(output_dir, 'features.csv'), 'w') as f:
             f.write('intercept: {}{}{}'.format(model.intercept_, linesep, linesep))
             features[['feature', 'coefficient']].to_csv(f, index=False)
 
@@ -240,7 +243,7 @@ def __save_model(model_config, output_dir):
     :param output_dir: The directory to write the imputer and model to
     """
     try:
-        with open(path.join(output_dir, 'model_config.pkl'), 'w') as f:
+        with open(path.join(output_dir, 'model_config.pkl'), 'wb') as f:
             f.write(pickle.dumps(model_config))
     except Exception as e:
         logger.info('Cannot save model: {}'.format(e))

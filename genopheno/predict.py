@@ -35,7 +35,7 @@ def run(users_dir, init_dir, model_dir, output_dir):
     snp_details = pd.read_csv(os.path.join(init_dir, 'snp_database.csv.gz'), compression='gzip')
 
     # Read model config
-    with open(os.path.join(model_dir, 'model_config.pkl')) as f:
+    with open(os.path.join(model_dir, 'model_config.pkl'), 'rb') as f:
         model_config = pickle.load(f)
 
     # Filter snps to only include selected snps
@@ -89,7 +89,7 @@ def run(users_dir, init_dir, model_dir, output_dir):
     pd.DataFrame({'user_id': users, 'prediction': predictions})\
         .to_csv(os.path.join(output_dir, 'predictions.csv'), index=False, columns=['user_id', 'prediction'])
 
-    print 'Output written to "{}"'.format(output_dir)
+    print('Output written to "{}"'.format(output_dir))
 
 
 if __name__ == '__main__':
